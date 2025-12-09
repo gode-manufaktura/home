@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GODE MANUFAKTURA - ručna izrada proizvoda od vune</title>
+    
+    <style>
+        /* RETRO.CSS - Stil za Vanjaka Foto Lab (90-e) */
+        
+        /* KEYFRAMES ZA SIMULACIJU TREPĆUĆEG TEKSTA (BLINK) */
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .blink-text {
+            /* Primjenjujemo animaciju */
+            animation: blink 1s step-end infinite; 
+            color: red; /* Klasična upadljiva boja */
+            font-weight: bold;
+        }
+
+        /* 1. Opći stilovi tijela i fontovi */
+        body {
+            background-color: #87b5ff; /* PROMIJENJENO: Još plavija pozadina */ 
+            color: #000000;
+            font-family: "Times New Roman", Times, serif; 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.4; 
+            
+            /* Dodavanje suptilnog zrnastog šuma (noise) */
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAADFJREFUGFdjZEACJmYGJgYmBgZ/BgYGBgZGIiICVjYGBgZGIgK0BqNgYGDGAIAdBgYAVl0C/gAAAABJRU5ErkJggg==');
+            background-repeat: repeat;
+        }
+
+        /* GLAVNI WRAPPER */
+        #main-wrapper {
+            width: 90%; 
+            max-width: 760px; 
+            margin: 20px auto; 
+            overflow: hidden;
+            border: 3px solid #666;
+            background-color: #ffffff; 
+            box-shadow: 5px 5px 0px #aaaaaa;
+        }
+
+        /* 2. Zaglavlje i Navigacija */
+        header {
+            background: #000080; /* Tamno modra boja */ 
+            color: white;
+            padding: 10px 20px; 
+            text-align: center;
+            border-bottom: 5px double #000000;
+        }
+        
+        /* Ako se H1 i dalje pojavljuje, ovime ga sakrivamo */
+        h1 { display: none; } 
+
+        /* SLIKA LOGOTIPA (Smanjena) */
+        .logo-img {
+            display: block; 
+            margin: 10px auto; 
+            max-width: 300px; 
+            height: auto;
+            border: 2px solid #000000;
+            padding: 3px;
+            background-color: #cccccc;
+            box-shadow: 2px 2px #333333;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+
+        nav ul li a {
+            color: #ffffff; /* Bijela boja za bolji kontrast na modroj pozadini */ 
+            text-decoration: underline; 
+            padding: 5px 15px;
+            font-weight: bold;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #000000;
+            color: #ff00ff; 
+        }
+
+        /* Efekt klika - simulacija pritiska na gumb */
+        nav ul li a:active {
+            background-color: #ff00ff; 
+            color: #000000; 
+            
+            /* Pomicanje linka dolje i desno */
+            position: relative;
+            top: 1px;
+            left: 1px;
+        }
+
+        /* 3. Sekcije i Tekst */
+        section {
+            padding: 20px; 
+            margin-bottom: 0; 
+            border-bottom: 1px dashed #cccccc; 
+        }
+        
+        /* Tekst sa sjenom */
+        .shadow-text {
+            /* Sjena pomaknuta 2px desno i dolje, sive boje */
+            text-shadow: 2px 2px #aaaaaa; 
+        }
+
+        /* Stil za isticanje teksta flomasterom */
+        .highlight {
+            background-color: #ffff00; /* Svijetlo žuta boja flomastera */
+            color: #000000; /* Crni tekst na istaknutoj pozadini */
+            padding: 0 3px; /* Mali padding za bolji izgled */
+            border: 1px solid #000000; /* Crni okvir oko istaknutog teksta */
+            font-weight: bold; /* Neka istaknuti tekst bude i podebljan */
+        }
+
+        h2 {
+            font-family: "Times New Roman", Times, serif;
+            color: #000080; 
+            text-align: left;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #000080;
+            padding-bottom: 5px;
+        }
+        
+        /* SLIKE USLUGA - Klasa: .service-img */
+        .service-img {
+            display: block;
+            margin: 5px auto 10px auto; 
+            max-width: 90%; 
+            height: auto;
+            border: 1px solid #000000;
+            box-shadow: 2px 2px #333333;
+        }
+
+        /* Raspored dva stupca (float) */
+        .service-item {
+            overflow: auto; 
+        }
+
+        .service-item div {
+            width: 47%; 
+            float: left; 
+            margin-right: 3%; 
+            border: 1px solid #000000;
+            padding: 10px;
+            background: #f0f0f0;
+            margin-top: 10px;
+        }
+        .service-item div:last-child {
+            float: right;
+            margin-right: 0;
+        }
+        
+        /* RETRO LISTE */
+        .service-item ul {
+            list-style-type: square; 
+            padding-left: 10px; 
+            margin-top: 5px; 
+            margin-bottom: 10px;
+        }
+        .service-item ul li {
+            border: 1px solid #333;
+            background-color: #d0d0d0; 
+            padding: 2px 5px;
+            margin-bottom: 3px; 
+            list-style-position: inside; 
+        }
+
+        /* 4. Obrazac i Gumbi */
+        form {
+            background: #cccccc;
+            padding: 20px;
+            border: 2px outset #ffffff; 
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            border: 2px inset #ffffff; 
+            background-color: white;
+            width: 100%; 
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        /* Povećani i agresivni 3D gumb */
+        button[type="submit"] {
+            background: #008080;
+            color: white;
+            padding: 10px 20px; 
+            border: 5px outset #ffffff; 
+            cursor: pointer;
+            font-size: 1.2em; 
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        /* STILIZACIJA RETRO PORUKE O GREŠCI */
+        #error-message {
+            color: red; /* Klasična boja za grešku */
+            font-weight: bold;
+            text-align: center;
+            padding: 8px;
+            margin-bottom: 15px;
+            
+            /* Retro okvir sličan grešci iz DOS-a / Windows 95 */
+            border: 3px solid red; 
+            background-color: #ffe0e0; /* Vrlo svijetlo crvena pozadina */
+            box-shadow: 2px 2px #ff6666;
+            display: none; /* Inicijalno sakriveno, JS će ga prikazati */
+        }
+
+
+        /* 5. Podnožje */
+        footer {
+            background: #aaaaaa;
+            color: #333333;
+            text-align: center;
+            padding: 15px 20px; 
+            font-size: 0.8em;
+            
+            /* DEBLJI RETRO OKVIR */
+            border-top: 5px solid #000000; 
+            border-bottom: 5px groove #ffffff; 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-wrapper"> 
+
+        <header>
+            <div>
+                <img src="./Gode Manufaktura logo1 popravljeni.png" alt="Gode Manufaktura Logotip" class="logo-img">
+                
+                <p>Jednostavan dogovor za savršen ručno rađeni proizvod.</p>
+
+                <marquee style="background-color: #ff00ff; color: #000000; font-weight: bold; padding: 3px 0;">
+                    *** Ovo je samo informativna stranica - za više informacija otiđite do dna stranice ***
+                </marquee>
+
+                <nav>
+                    <ul>
+                        <li><a href="#usluge">Usluge</a></li>
+                        <li><a href="#onama">Naša povijest</a></li>
+                        <li><a href="#info">Info</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section id="usluge">
+            <h2 class="shadow-text">Naše Usluge</h2>
+            
+            <div class="service-item">
+                <div>
+                    <img src="./Gode Manufaktura proizvodi.png" alt="Neki naši proizvodi" class="service-img">
+                    
+                    <h3>O našem poslovanju</h3>
+                    <p>
+Naše poslovanje napreduje na jednostavnosti i učinkovitosti. Kupci komuniciraju izravno s nama putem e-pošte kako bi dogovorili usluge ili riješili upite. Ova jednostavna metoda osigurava jasnoću i izravnu interakciju, pomažući nam da učinkovito razumijemo i zadovoljimo vaše potrebe. Fokusirajući se na personaliziranu e-mail korespondenciju, pružamo pouzdanu i pristupačnu platformu za naše kupce.</p>
+                    <ul>
+                        <li>Slanje diljem države</li>
+                        <li>Svakodnevni popusti</li>
+                        <li>Samo recite što Vas zanima</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <img src="./Gode Manufaktura Klub logo2.png" alt="Gode Manufaktura Klub" class="service-img">
+                    
+                    <h3>Tu je i Gode Manufaktura Klub</h3>
+                    <p>
+Upravo smo napravili naš Gode Manufaktura klub! Prijavite se i prvi saznajte sve najnovije ponude i možete čak i dobiti neke posebne ponude kao član kluba.</p>
+                    <ul>
+                        <li>Još bolje ponude</li>
+                        <li>Besplatna prijava</li>
+                        <li>Sponzorski predmeti na dar</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="text-align: center;">Za detaljan cjenik i pakete usluga, molimo kontaktirajte nas.</p>
+        </section>
+        
+        
+        <section id="onama">
+            <h2 class="shadow-text">Naša povijest</h2>
+            <p>Naša glavna proizvođačica cijeli se život interesira u proizvodnju pletenih proizvoda, no te 2025. godine joj je u suradnji s Vanjaka Korporacijom omogućeno da to radi za život.</p>
+        </section>
+
+        <section id="info">
+            <h2 class="shadow-text">Info</h2>
+            <p><strong>Glavna stranica Gode Manufakture:</strong> <a href="https://688cd5b25a72a.site123.me/">https://688cd5b25a72a.site123.me/</a>
+            <br><strong>Glavna stranica Gode Manufaktura Kluba:</strong> <a href="https://68f15fda421af.site123.me/">https://68f15fda421af.site123.me/</a>
+            
+           
+        </section>
+
+
+        <footer>
+            <p>Gode Manufaktura | E-mail: gode.manufaktura@gmail.com</p>
+            <p>&copy; 2025. Sva prava pridržana. </p>
+        </footer>
+
+    </div> 
+
+    <script>
+        // Funkcija za provjeru ispravnosti E-mail formata
+        function isValidEmail(email) {
+            // Jednostavna regex provjera 
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+            return emailRegex.test(email);
+        }
+
+        // Glavna funkcija za validaciju obrasca (Ostavljena je radi moguće buduće upotrebe)
+        function validateForm(event) {
+            // Sprječava uobičajeno ponašanje obrasca (osvježavanje stranice)
+            event.preventDefault(); 
+
+            // Trenutno nema forme.
+            console.log("Validacija preskočena jer nema aktivne forme.");
+            return false; 
+        }
+    </script>
+</body>
+</html>
